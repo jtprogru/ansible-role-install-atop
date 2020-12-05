@@ -1,0 +1,21 @@
+---
+- name: "install packages"
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ atop_packages }}"
+
+- name: "enable autostart"
+  systemd:
+    name: "atop.service"
+    state: started
+    enabled: true
+
+- name: "generate default config for atop"
+  template:
+    src: "atop.j2"
+    dest: "{{ atop_config_path }}"
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart atop
