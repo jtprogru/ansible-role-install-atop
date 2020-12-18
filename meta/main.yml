@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: install-atop
   author: Mihael Savin
   description: Install atop
   company: ADV
