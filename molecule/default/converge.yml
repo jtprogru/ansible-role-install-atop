@@ -21,7 +21,4 @@
       failed_when: systemctl_status.rc > 1
 
   roles:
-    - role: jtprogru.install_atop
-      vars:
-        base_soft_list_extra:
-          - ansible
+    - jtprogru.install_atop
