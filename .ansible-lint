@@ -1,0 +1,16 @@
+exclude_paths:
+  - ./.github/
+parseable: true
+quiet: true
+# rulesdir:
+#   - ./rule/directory/
+skip_list:
+  - '401'
+  - '204'
+  - '403'
+  - '702'
+  - '305'
+# tags:
+#   - run_this_tag
+use_default_rules: true
+verbosity: 1
