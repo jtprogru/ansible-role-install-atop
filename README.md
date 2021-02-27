@@ -1,17 +1,29 @@
-# ansible-role-install-atop
+# jtprogru.install_atop
 
-Общая роль для установки atop на хосты
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jtprogru/ansible-role-install-atop/CI?label=CI) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jtprogru/ansible-role-install-atop/Release?label=Release) ![GitHub](https://img.shields.io/github/license/jtprogru/ansible-role-install-atop)
 
-Переменные:
+Simple role for install atop on remote server.
+
+
+## Role Variables
+
+
+See [`defaults/main.yml`](defaults/main.yml).
+
+
+## Example Playbook
+
+Example playbook:
 ```yaml
 ---
-atop_packages:
-  - atop
-atop_config_path: "/etc/default/atop"
-# Интервал через который делается снимок нагрузки сервера, в секундах.
-atop_log_interval: 300
-# Путь до логов atop.
-atop_log_path: "/var/log/atop"
-# хранить бэкапы за 10 дней.
-atop_log_generations: 10
+- name: Installing atop
+  hosts: all
+  become: true
+
+  roles:
+    - jtprogru.install_atop
 ```
+
+## License
+
+See [LICENSE](LICENSE.md)
