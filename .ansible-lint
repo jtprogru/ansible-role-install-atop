@@ -1,15 +1,13 @@
 exclude_paths:
-  - ./.github/
+  - .github
+  - ./molecule
 parseable: true
-quiet: true
+# quiet: true
 # rulesdir:
 #   - ./rule/directory/
 skip_list:
-  - '401'
-  - '204'
-  - '403'
-  - '702'
-  - '305'
+  - 'git-latest'
+  - 'package-latest'
 # tags:
 #   - run_this_tag
 use_default_rules: true
