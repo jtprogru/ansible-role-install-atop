@@ -3,7 +3,7 @@ galaxy_info:
   role_name: install_atop
   author: Mihael Savin
   description: Ansible role for install atop
-  company: ADV
+  company: Owl Legion
 
   license: WTFPL
   min_ansible_version: 2.9

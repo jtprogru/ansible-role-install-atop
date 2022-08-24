@@ -1,5 +1,13 @@
 ---
-- name: "restart atop"
-  systemd:
+- name: "restart atop.service"
+  ansible.builtin.service:
     name: "atop.service"
     state: restarted
+  listen: "atop listner"
+
+- name: "restart atopacct.service"
+  ansible.builtin.service:
+    name: "atopacct.service"
+    state: restarted
+  listen: "atop listner"
+

@@ -1,21 +1,26 @@
 ---
-- name: "install packages"
-  package:
-    name: "{{ item }}"
+- name: "jtprogru.install_atop | install packages"
+  ansible.builtin.package:
+    name: "{{ atop_packages }}"
     state: present
-  with_items: "{{ atop_packages }}"
+  tags: [ "install_atop" ]
 
-- name: "enable autostart"
-  systemd:
-    name: "atop.service"
+- name: "jtprogru.install_atop | enable autostart"
+  ansible.builtin.service:
+    name: "{{ item }}"
     state: started
     enabled: true
+  with_items:
+    - "atop.service"
+    - "atopacct.service"
+  tags: [ "install_atop" ]
 
-- name: "generate default config for atop"
-  template:
-    src: "atop.j2"
-    dest: "{{ atop_config_path }}"
+- name: "jtprogru.install_atop | generate default config for atop"
+  ansible.builtin.template:
+    src: "atop.daily.j2"
+    dest: "{{ install_atop_config_path }}"
     owner: root
     group: root
     mode: 0644
-  notify: restart atop
+  notify: atop listner
+  tags: [ "install_atop" ]
