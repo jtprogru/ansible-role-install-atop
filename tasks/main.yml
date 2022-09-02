@@ -10,6 +10,7 @@
     name: "{{ item }}"
     state: started
     enabled: true
+  when: not ansible_check_mode
   with_items:
     - "atop.service"
     - "atopacct.service"
